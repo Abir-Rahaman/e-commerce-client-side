@@ -1,13 +1,12 @@
 import React from "react";
-import slide1 from '../../../images/slide2_prev_ui.png'
-import slide2 from '../../../images/slide3_prev_ui (2).png'
-import slide3 from '../../../images/slide4_prev_ui (3).png'
+import slide1 from '../../images/slide2_prev_ui.png'
+import slide2 from '../../images/slide3_prev_ui (2).png'
+import slide3 from '../../images/slide4_prev_ui (3).png'
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import './HeroSection.css'
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "./HeroSection.css";
 import { Pagination } from "swiper";
 import { Navigation } from "swiper";
 

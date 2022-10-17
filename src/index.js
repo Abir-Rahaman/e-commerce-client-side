@@ -6,12 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import "swiper/css/bundle";
 import "./Componenets/HeroSection/HeroSection.css";
+import { AppProvider } from './Componenets/Conterxt/ProductContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
   <React.StrictMode>
-    <App />
+   <AppProvider>
+    <App/>
+   </AppProvider>
   </React.StrictMode>
   </BrowserRouter>
 );

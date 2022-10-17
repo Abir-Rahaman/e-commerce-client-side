@@ -1,19 +1,23 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
-import Contact from './Componenets/Contact';
 import Header from './Componenets/Shared/Header';
 import Home from './Componenets/Home/Home';
+import Footer from './Componenets/Shared/Footer';
+import NotFound from './Componenets/Shared/NotFound';
+import SingleProduct from './Componenets/SingleProduct/SingleProduct';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="/singleProduct/:id" element={<SingleProduct />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

@@ -27,7 +27,7 @@ const HeroSection = () => {
             <div class="hero-content flex-col lg:flex-row-reverse ">
             <img  className="lg:mr-0 mr-44" src={slide1} alt="" />
               <div> 
-                <h1 class="lg:text-4xl text-xl font-bold p-6 rounded-tr-full rounded-bl-full text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Get Your Own Place</h1>
+                <h1 class="lg:text-4xl text-center text-xl font-bold p-6 rounded-tr-full rounded-bl-full text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Get Your Own Place</h1>
                 <p class="py-6 text-black font-bold">
                 Enjoy powerful ecommerce features—including inventory management, payment collection, and unlimited product options
                 </p>
@@ -43,7 +43,7 @@ const HeroSection = () => {
             <div class="hero-content flex-col lg:flex-row-reverse ">
             <img className="lg:mr-0 mr-32" src={slide2} alt="" />
               <div> 
-                <h1 class="lg:text-4xl text-sm font-bold px-12 py-4 rounded-tr-full rounded-bl-full text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ">Your Product Knock into Your Door within 45min</h1>
+                <h1 class="lg:text-4xl text-center text-sm font-bold px-12 py-4 rounded-tr-full rounded-bl-full text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ">Your Product Knock into Your Door within 45min</h1>
                 <p class="py-6 text-black font-bold">
                 Enjoy powerful ecommerce features—including inventory management, payment collection, and unlimited product options
                 </p>
@@ -59,7 +59,7 @@ const HeroSection = () => {
             <div class="hero-content flex-col lg:flex-row-reverse ">
             <img className="lg:mr-0 mr-36" src={slide3} alt="" />
               <div> 
-                <h1 class="lg:text-4xl text-sm font-bold p-6 rounded-tr-full rounded-bl-full text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">No Delivery Charge In Campus area</h1>
+                <h1 class="lg:text-4xl text-center text-sm font-bold p-6 rounded-tr-full rounded-bl-full text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">No Delivery Charge In Campus area</h1>
                 <p class="py-6 text-black font-bold">
                 Enjoy powerful ecommerce features—including inventory management, payment collection, and unlimited product options
                 </p>

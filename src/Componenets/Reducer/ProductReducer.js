@@ -5,10 +5,23 @@ const ProductReducer = (state,action) =>{
             isLoading: true,
         }
     }
+    if(action.type === 'SET_SINGLE_LOADING'){
+        return{
+            ...state,
+            isSingleLoading: true,
+        }
+    }
     if(action.type === 'API_ERROR'){
         return{
             ...state,
             isLoading: false,
+            isError: true,
+        }
+    }
+    if(action.type === 'SINGLE_API_ERROR'){
+        return{
+            ...state,
+            isSingleLoading: false,
             isError: true,
         }
     }
@@ -21,6 +34,15 @@ const ProductReducer = (state,action) =>{
             isLoading: false,
             products : action.payload,
             featureProducts : featureData,
+        }
+    }
+    if(action.type === 'MY_SINGLE_PRODUCT_API'){
+     
+        return{
+            ...state,
+            isSingleLoading: false,
+            singleProduct : action.payload,
+           
         }
     }
     return state;

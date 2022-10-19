@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useProductContext } from '../Conterxt/ProductContext';
@@ -10,15 +10,17 @@ import { BsBicycle } from 'react-icons/bs';
 import { BiRecycle } from 'react-icons/bi';
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 import { FcApproval } from 'react-icons/fc';
+import Rating from './../Shared/Rating';
 
 
 
 const API = "https://api.pujakaitem.com/api/products"
 
 const SingleProduct = () => {
+   
     const{getSingleProduct,isSingleLoading,singleProduct} = useProductContext();
     const {id} = useParams();
-    const {id:abir, name,company,price,description,catagory,stock,stars, reviews } = singleProduct;
+    const {id:abir, name,company,price,description,catagory,stock,stars, reviews,image } = singleProduct;
     useEffect(()=>{
         getSingleProduct(`${API}?id=${id}`)
     },[])
@@ -29,22 +31,20 @@ const SingleProduct = () => {
     return (
         <div>
             <PageNavigation title={name}></PageNavigation>
-            <div className="flex justify-around">
+            <div className="flex justify-center gap-28 mt-8">
                 <div className="">
-                 <SingleProductImg></SingleProductImg>
+                 <SingleProductImg imgs={image}></SingleProductImg>
                 </div>
                 <div className="">
                     <h1 className='text-2xl '>{name}</h1>
-                    <p className='my-1'>{stars}</p>
-                    <p>{reviews}</p>
-                    
+                    <Rating star={stars} review={reviews}></Rating> 
                     <small>
                     <del>
                     {<FormatPrice price={price+250000}></FormatPrice>}
                     </del>
                     </small>
                     <p className='font-bold text-purple-700 mb-4'>Deal of the day: {<FormatPrice price={price}></FormatPrice>}</p>
-                    <p className='w-96'><small>{description}</small></p>
+                    <p className='w-96 '><small>{description}</small></p>
                     <div className="flex gap-8 my-4">
                        <div className="">
                        <p className='text-4xl flex justify-center text-slate-500'><BsBicycle/></p>

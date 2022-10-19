@@ -11,6 +11,7 @@ import { BiRecycle } from 'react-icons/bi';
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 import { FcApproval } from 'react-icons/fc';
 import Rating from './../Shared/Rating';
+import AddToCart from './../Shared/AddToCart';
 
 
 
@@ -67,8 +68,10 @@ const SingleProduct = () => {
                     <p><small className='font-bold'> available : { stock > 0 ?"in stock" : "Not Available"   } </small></p>
                     <p><small  className='font-bold'>Brand : {company}</small></p>
                     <div class="divider"></div> 
-
-
+                     {
+                        stock && <AddToCart singleProduct={singleProduct}></AddToCart>
+                     }
+                   
                  
                 </div>
             </div>

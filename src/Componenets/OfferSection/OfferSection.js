@@ -3,10 +3,13 @@ import { TbTruckDelivery } from 'react-icons/tb';
 import { TbSchool } from 'react-icons/tb';
 import { FaMoneyBillAlt } from 'react-icons/fa';
 import { MdPayment } from 'react-icons/md';
+import { NavLink } from 'react-router-dom';
 
 
 const OfferSection = () => {
   return (
+  <>
+  <NavLink className="flex justify-center" to='products'><button class="btn btn-warning ">Warning</button></NavLink>
    <div className="my-20">
     <h1 className="text-center text-3xl font-bold mb-12 text-purple-400"> Our Target Market Based Only Student</h1>
     <div className="lg:flex justify-evenly lg:px-0  px-6">
@@ -38,6 +41,8 @@ const OfferSection = () => {
       </div>
     </div>
    </div>
+   
+  </>
   );
 };
 

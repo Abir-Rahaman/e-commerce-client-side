@@ -1,12 +1,12 @@
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
 
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
-
-import Header from './Componenets/Shared/Header';
-import Home from './Componenets/Home/Home';
-import Footer from './Componenets/Shared/Footer';
-import NotFound from './Componenets/Shared/NotFound';
-import SingleProduct from './Componenets/SingleProduct/SingleProduct';
+import Header from "./Componenets/Shared/Header";
+import Home from "./Componenets/Home/Home";
+import Footer from "./Componenets/Shared/Footer";
+import NotFound from "./Componenets/Shared/NotFound";
+import SingleProduct from "./Componenets/SingleProduct/SingleProduct";
+import Products from './Componenets/Products/Products';
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/singleProduct/:id" element={<SingleProduct />} />
+        <Route path="/products" element={<Products/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>

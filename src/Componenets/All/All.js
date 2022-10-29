@@ -1,12 +1,12 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import FormatPrice from "../Helpers/FormatPrice";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import FormatPrice from './../Helpers/FormatPrice';
 
-const HomeProducts = ({ product }) => {
-  const { image, name, company, price, category ,id } = product;
-  return (
-    <>
-    <div class="card w-80  bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 shadow-xl rounded-none">
+const All = ({product}) => {
+    const { image, name, company, price, category ,id } = product;
+
+    return (
+        <div class="card w-72  bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 shadow-xl rounded-none">
      <NavLink to={`/singleProduct/${id}`}>
      <figure class="">
         <img src={image} alt="Shoes" class=" hover:scale-110 duration-500 " />
@@ -39,11 +39,8 @@ const HomeProducts = ({ product }) => {
           <button class="btn btn-sm bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:duration-500 border-none text-white"> <small>Like</small></button> 
         </div>
       </div>
-     
     </div>
-      
-    </>
-  );
+    );
 };
 
-export default HomeProducts;
+export default All;

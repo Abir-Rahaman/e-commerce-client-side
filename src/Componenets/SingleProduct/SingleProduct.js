@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useProductContext } from '../Conterxt/ProductContext';
@@ -21,7 +21,7 @@ const SingleProduct = () => {
    
     const{getSingleProduct,isSingleLoading,singleProduct} = useProductContext();
     const {id} = useParams();
-    const {id:abir, name,company,price,description,catagory,stock,stars, reviews,image } = singleProduct;
+    const {id:product, name,company,price,description,catagory,stock,stars, reviews,image } = singleProduct;
     useEffect(()=>{
         getSingleProduct(`${API}?id=${id}`)
     },[])

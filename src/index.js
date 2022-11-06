@@ -16,7 +16,7 @@ root.render(
       <AppProvider>
         <FilterContextProvider>
           <App />
-        </FilterContextProvider>
+        </FilterContextProvider >
       </AppProvider>
     </React.StrictMode>
   </BrowserRouter>

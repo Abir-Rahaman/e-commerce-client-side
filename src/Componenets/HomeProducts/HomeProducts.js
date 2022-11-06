@@ -2,8 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import FormatPrice from "../Helpers/FormatPrice";
 
-const HomeProducts = ({ product }) => {
-  const { image, name, company, price, category ,id } = product;
+const HomeProducts = ( curElem ) => {
+  const { image, name, company, price, category ,id } = curElem;
   return (
     <>
     <div class="card w-80  bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 shadow-xl rounded-none">

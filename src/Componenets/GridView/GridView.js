@@ -7,10 +7,10 @@ const GridView = ({products }) => {
     
    
     return (
-        <div>
+        <div className='grid grid-cols-3 gap-20 my-20'>
             {
-                products.map((product)=>{
-                        return<HomeProducts key={product.id } {...product}></HomeProducts>
+                products.map((curElem,id)=>{
+                        return<HomeProducts key={curElem.id } {...curElem}></HomeProducts>
                 })
             }
         </div>

@@ -1,7 +1,7 @@
 
 
 const FormatPrice = ({price}) => {
-    return Intl.NumberFormat("en-BN",{
+    return Intl.NumberFormat("bn-BN",{
         style: "currency",
         currency: "BDT",
         maximumFractionDigits: 2,

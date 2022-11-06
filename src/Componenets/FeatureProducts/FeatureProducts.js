@@ -18,7 +18,7 @@ const FeatureProducts = () => {
             <h1 className=" text-3xl font-bold  text-purple-400 mb-6">Check & Choose Feature Collections.</h1>
             </div>
             <div className="flex justify-evenly ">
-              {featureProducts.map( product => (<HomeProducts product={product}></HomeProducts>))}
+              {featureProducts.map((curElem)  => (<HomeProducts key={curElem.id} {...curElem}></HomeProducts>))}
             </div>
 
             

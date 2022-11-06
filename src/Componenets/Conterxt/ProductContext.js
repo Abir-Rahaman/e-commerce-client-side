@@ -14,7 +14,7 @@ const initialState = {
   isSingleLoading: false,
   singleProduct:{},
 
-};
+ };
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -52,6 +52,6 @@ const AppProvider = ({ children }) => {
 
 const useProductContext = () => {
   return useContext(appContext);
-};
+}; 
 
 export { AppProvider , appContext, useProductContext  };

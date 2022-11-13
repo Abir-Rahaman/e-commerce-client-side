@@ -29,6 +29,7 @@ const SingleProduct = () => {
     if(isSingleLoading){
           return <Spinner></Spinner>
     }
+
     return (
         <div>
             <PageNavigation title={name}></PageNavigation>

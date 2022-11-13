@@ -8,6 +8,7 @@ import "swiper/css/bundle";
 import "./Componenets/HeroSection/HeroSection.css";
 import { AppProvider } from "./Componenets/Conterxt/ProductContext";
 import { FilterContextProvider } from "./Componenets/Conterxt/FilterContext";
+import { CartProvider } from "./Componenets/Conterxt/CartContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,8 +16,10 @@ root.render(
     <React.StrictMode>
       <AppProvider>
         <FilterContextProvider>
-          <App />
-        </FilterContextProvider >
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </FilterContextProvider>
       </AppProvider>
     </React.StrictMode>
   </BrowserRouter>

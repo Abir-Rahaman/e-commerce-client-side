@@ -7,6 +7,7 @@ import Footer from "./Componenets/Shared/Footer";
 import NotFound from "./Componenets/Shared/NotFound";
 import SingleProduct from "./Componenets/SingleProduct/SingleProduct";
 import Products from './Componenets/Products/Products';
+import Cart from './Componenets/Cart/Cart';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/singleProduct/:id" element={<SingleProduct />} />
         <Route path="/products" element={<Products/>} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>

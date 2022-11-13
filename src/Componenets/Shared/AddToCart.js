@@ -3,22 +3,30 @@ import { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
 import CartAmount from '../CartAmount/CartAmount';
+import { useCartContext } from '../Conterxt/CartContext';
+
 
 
 
 const AddToCart = ({singleProduct}) => {
-
-   
+    
     const {colors , stock,id} = singleProduct;
     const [color,setColor] = useState(colors[0])
-
+    
+    const { addToCart } = useCartContext();
     const [amount,setAmount] = useState(0)
     const setIncrease = () =>{
         amount > 1 ? setAmount(amount-1) : setAmount(1) 
     }
     const setDecrease = () =>{
-        amount < stock ? setAmount(amount+ 1) : setAmount(stock) 
+        amount < stock ? setAmount(amount+1) : setAmount(stock) 
     }
+
+   
+
+  
+    
+    
    
     return (
         <div>
@@ -38,7 +46,9 @@ const AddToCart = ({singleProduct}) => {
                 }
                 </p>
             </div>
-            <CartAmount amount={amount} setAmount={setAmount} setDecrease={setDecrease} setIncrease={setIncrease} ></CartAmount>
+            <CartAmount  singleProduct={singleProduct} amount={amount} setAmount={setAmount} setDecrease={setDecrease} setIncrease={setIncrease}  addToCart={addToCart}></CartAmount>
+
+            
         </div>
     );
 };

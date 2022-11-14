@@ -1,21 +1,24 @@
 import React from "react";
 import CartItem from "../CartItem/CartItem";
 import { useCartContext } from "../Conterxt/CartContext";
+import { Link } from 'react-router-dom';
+
 
 const Cart = () => {
-  const { cart } = useCartContext();
-  console.log(cart);
+  const { cart,clearCart } = useCartContext();
+
+  if(cart.length === 0){
+     return <div className="h-80 flex justify-center items-center text-4xl font-bold text-white-600 bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 shadow-xl ">
+        <h1 className="p-32">No item in cart...</h1>
+    </div>
+  }
+
   return (
     <>
       <div class="overflow-x-auto w-full px-44 py-12">
         <table class="table w-full">
           <thead>
             <tr>
-              <th>
-                <label>
-                  <input type="checkbox" class="checkbox" />
-                </label>
-              </th>
               <th>Item</th>
               <th>Name</th>
               <th>Price</th>
@@ -33,8 +36,8 @@ const Cart = () => {
       </div>
       <hr />
       <div className="mt-6 flex justify-around ">
-        <button class="px-8  py-3 rounded-none bg-purple-800 text-white border-none"> Continue Shopping</button>
-        <button class="px-8  py-3 rounded-none bg-red-800 text-white border-none">Clear Cart</button>
+        <Link to="/products"  class="px-8  py-3 rounded-none bg-purple-800 text-white border-none"> Continue Shopping</Link>
+        <button onClick={() => clearCart()} class="px-8  py-3 rounded-none bg-red-800 text-white border-none">Clear Cart</button>
       </div>
       <div class="card w-96 my-8  bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 shadow-xl rounded-2xl mx-40 ml-auto">
         <div class="card-body ">

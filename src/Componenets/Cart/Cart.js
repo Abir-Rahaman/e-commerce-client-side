@@ -2,10 +2,11 @@ import React from "react";
 import CartItem from "../CartItem/CartItem";
 import { useCartContext } from "../Conterxt/CartContext";
 import { Link } from 'react-router-dom';
+import FormatPrice from "../Helpers/FormatPrice";
 
 
 const Cart = () => {
-  const { cart,clearCart } = useCartContext();
+  const { cart,clearCart ,total_price,shipping_fee} = useCartContext();
 
   if(cart.length === 0){
      return <div className="h-80 flex justify-center items-center text-4xl font-bold text-white-600 bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 shadow-xl ">
@@ -41,11 +42,11 @@ const Cart = () => {
       </div>
       <div class="card w-96 my-8  bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 shadow-xl rounded-2xl mx-40 ml-auto">
         <div class="card-body ">
-          <h2 class="">Subtotal : </h2>
-          <h2 class="my-2">Shipping Fee : </h2>
+          <h2 class="">Subtotal : <FormatPrice price={total_price}></FormatPrice> </h2>
+          <h2 class="my-2">Shipping Fee :  <FormatPrice price={shipping_fee}></FormatPrice> </h2>
 
           <div className="w-full h-1 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400"></div>
-          <h2 class="card-title">Total Order : </h2>
+          <h2 class="card-title">Total Order :<FormatPrice price={total_price +shipping_fee }></FormatPrice> </h2>
         </div>
       </div>
     </>

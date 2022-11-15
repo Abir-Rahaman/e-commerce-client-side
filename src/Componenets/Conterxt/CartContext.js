@@ -18,7 +18,7 @@ const initialState = {
   // cart: [],
   cart:getLocalCartData(),
   total_item: "",
-  total_amount: "",
+  total_price: "",
   shipping_fee: 50000,
 };
 
@@ -29,6 +29,13 @@ const CartProvider = ({ children }) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, color, amount, SingleProduct } });
     
   };
+
+  const setDecrease = (id) => {
+    dispatch({type:"SET_DECREASE",payload:id})
+  }
+  const setIncrease = (id) => {
+    dispatch({type:"SET_INCREASE",payload:id})
+  }
   
 
   const removeItem = (id) => {
@@ -36,6 +43,8 @@ const CartProvider = ({ children }) => {
   };
 
   useEffect(() =>{
+    dispatch({type:"CART_TOTAL_ITEM"})
+    dispatch({type:"CART_TOTAL_PRICE"})
     localStorage.setItem("cart", JSON.stringify(state.cart))
   },[state.cart])
 
@@ -44,7 +53,7 @@ const CartProvider = ({ children }) => {
   }
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart, removeItem,clearCart }}>
+    <CartContext.Provider value={{ ...state, addToCart, removeItem,clearCart,setIncrease,setDecrease }}>
       {children}
     </CartContext.Provider>
   );

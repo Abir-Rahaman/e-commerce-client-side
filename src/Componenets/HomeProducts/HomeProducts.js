@@ -2,12 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import FormatPrice from "../Helpers/FormatPrice";
 
-const HomeProducts = ( curElem ) => {
-  const { image, name, company, price, category ,id } = curElem;
+const HomeProducts = ( curElem) => {
+  const { image, name, company, price, category ,_id } = curElem;
+
+
   return (
     <>
     <div class="card w-80  bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 shadow-xl rounded-none">
-     <NavLink to={`/singleProduct/${id}`}>
+     <NavLink to={`/singleProduct/${_id}`}>
      <figure class="">
         <img src={image} alt="Shoes" class=" hover:scale-110 duration-500 " />
       </figure>

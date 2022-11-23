@@ -8,10 +8,10 @@ import { useCartContext } from '../Conterxt/CartContext';
 
 
 
-const AddToCart = ({singleProduct}) => {
+const AddToCart = ({products}) => {
     
-    const {colors , stock,id} = singleProduct;
-    const [color,setColor] = useState(colors[0])
+    const {colors , stock,id} = products;
+    const [color,setColor] = useState(colors)
     
     const { addToCart } = useCartContext();
     const [amount,setAmount] = useState(0)
@@ -46,7 +46,7 @@ const AddToCart = ({singleProduct}) => {
                 }
                 </p>
             </div>
-            <CartAmount  singleProduct={singleProduct} amount={amount} setAmount={setAmount} setDecrease={setDecrease} setIncrease={setIncrease}  addToCart={addToCart}></CartAmount>
+            <CartAmount  products={products} amount={amount} setAmount={setAmount} setDecrease={setDecrease} setIncrease={setIncrease}  addToCart={addToCart}></CartAmount>
 
             
         </div>

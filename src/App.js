@@ -8,6 +8,8 @@ import NotFound from "./Componenets/Shared/NotFound";
 import SingleProduct from "./Componenets/SingleProduct/SingleProduct";
 import Products from './Componenets/Products/Products';
 import Cart from './Componenets/Cart/Cart';
+import LogIn from './Componenets/Authentication/LogIn';
+import SignUp from './Componenets/Authentication/SignUp';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/singleProduct/:id" element={<SingleProduct />} />
         <Route path="/products" element={<Products/>} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/signIn" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>

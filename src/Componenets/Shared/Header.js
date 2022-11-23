@@ -1,10 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import logo from "../../images/loogo.png";
 import { useCartContext } from "../Conterxt/CartContext";
-const Header = () => {
+import { Link,NavLink,useNavigate } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { useAuthState} from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
+import FormatPrice from './../Helpers/FormatPrice';
 
-  const {total_item } = useCartContext();
+const Header = () => {
+  const {total_item ,total_price ,shipping_fee} = useCartContext();
+  const [user, loading, error] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+    navigate('/')
+    // localStorage.removeItem('accessToken')
+  };
+  const navigate = useNavigate()
+
+  
+
   const menuItems = (
     <>
       <li className="font-bold">
@@ -49,7 +63,7 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end ">
-        <div className="flex-none ">
+        <div className="flex">
           <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost btn-circle lg:mr-6">
               <div className="indicator ">
@@ -66,15 +80,17 @@ const Header = () => {
             </label>
             <div tabIndex="0" className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
               <div className="card-body">
-                <span className="font-bold text-lg">8 Items</span>
-                <span className="text-info">Subtotal: $999</span>
+                <span className="font-bold text-lg">{total_item} Items</span>
+                <span className="text-info">Subtotal: <FormatPrice  price={total_price +shipping_fee }> </FormatPrice></span>
                 <div className="card-actions">
-                  <button className="btn btn-primary btn-block">View cart</button>
+                  <NavLink to="/cart"><button  className="btn btn-sm text-red-500"><small>View cart</small></button></NavLink>
                 </div>
               </div>
             </div>
           </div>
-          <div className="dropdown dropdown-end gap-6">
+         
+          <div class="navbar-end lg:ml-0 ml-44 ">
+        {user ?  <div className="dropdown dropdown-end gap-6">
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar ">
               <div className="w-8 rounded-full flex ">
                 <img src="https://placeimg.com/80/80/people" />
@@ -88,13 +104,15 @@ const Header = () => {
                 </a>
               </li>
               <li>
-                <a>Settings</a>
+                <a>Dashboard</a>
               </li>
               <li>
-                <a>Logout</a>
+              <button onClick={logout}> Sing Out </button> 
               </li>
             </ul>
-          </div>
+          </div> :  <Link to="/login"> <button class="btn text-black rounded-full  bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-400 hover:duration-500 px-8 border-none"> LogIn </button></Link> }
+        
+      </div>
         </div>
       </div>
     </div>

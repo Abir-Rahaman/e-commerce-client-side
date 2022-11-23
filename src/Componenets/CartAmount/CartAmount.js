@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 
 
 
-const CartAmount = ({ setIncrease, setDecrease,addToCart ,singleProduct,amount}) => {
-  const { id, color, stock } = singleProduct;
+const CartAmount = ({ setIncrease, setDecrease,addToCart ,products,amount}) => {
+  const { id, color, stock } = products;
 
 
 
@@ -35,7 +35,7 @@ const CartAmount = ({ setIncrease, setDecrease,addToCart ,singleProduct,amount})
           
       </div>
 
-    <NavLink to="/cart">  <button onClick={()=>addToCart(id,color,amount,singleProduct)} class="btn btn-wide bg-error border-none text-black font-bold hover:bg-red-400">Add To Cart</button></NavLink>
+    <NavLink to="/cart">  <button onClick={()=>addToCart(id,color,amount,products)} class="btn btn-wide bg-error border-none text-black font-bold hover:bg-red-400">Add To Cart</button></NavLink>
    
     </div>
   );

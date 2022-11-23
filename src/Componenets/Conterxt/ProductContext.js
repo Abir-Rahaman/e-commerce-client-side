@@ -4,7 +4,7 @@ import reducer from "../Reducer/ProductReducer";
 
 const appContext = createContext();
 
-const API = "https://api.pujakaitem.com/api/products";
+const API = "http://localhost:4000/products";
 
 const initialState = {
   isLoading: false,
@@ -13,7 +13,6 @@ const initialState = {
   featureProducts: [],
   isSingleLoading: false,
   singleProduct:{},
-
  };
 
 const AppProvider = ({ children }) => {

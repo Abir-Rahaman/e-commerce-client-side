@@ -12,41 +12,48 @@ import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 import { FcApproval } from 'react-icons/fc';
 import Rating from './../Shared/Rating';
 import AddToCart from './../Shared/AddToCart';
+import { useState } from 'react';
 
 
 
-const API = "https://api.pujakaitem.com/api/products"
+
+
 
 const SingleProduct = () => {
-   
-    const{getSingleProduct,isSingleLoading,singleProduct} = useProductContext();
-    const {id} = useParams();
-    const {id:product, name,company,price,description,catagory,stock,stars, reviews,image } = singleProduct;
+    const [products,setProducts] = useState([]);
     useEffect(()=>{
-        getSingleProduct(`${API}?id=${id}`)
+        fetch(`http://localhost:4000/products/${id}`)
+        .then(res => res.json())
+        .then(data => setProducts(data))
     },[])
 
-    if(isSingleLoading){
-          return <Spinner></Spinner>
-    }
 
+   
+  
+  
+    const {id} = useParams();
+  
+
+  
+
+  
     return (
         <div>
-            <PageNavigation title={name}></PageNavigation>
+            <PageNavigation title={products.name}></PageNavigation>
             <div className="flex justify-center gap-28 mt-8">
                 <div className="">
-                 <SingleProductImg imgs={image}></SingleProductImg>
+                 <SingleProductImg imgs={products.image}></SingleProductImg>
                 </div>
                 <div className="">
-                    <h1 className='text-2xl '>{name}</h1>
-                    <Rating star={stars} review={reviews}></Rating> 
+                    <h1 className='text-2xl '>{products.name}</h1>
+                    <Rating star={products.stars} review={products.reviews}></Rating> 
                     <small>
                     <del>
-                    {<FormatPrice price={price+250000}></FormatPrice>}
+                    {<FormatPrice price={products.price+250000}></FormatPrice>}
                     </del>
                     </small>
-                    <p className='font-bold text-purple-700 mb-4'>Deal of the day: {<FormatPrice price={price}></FormatPrice>}</p>
-                    <p className='w-96 '><small>{description}</small></p>
+                    <p className='font-bold text-purple-700 mb-4'>Deal of the day: {<FormatPrice price={products.price}></FormatPrice>}</p>
+                    <p className='w-96 '><small>{products.description}</small></p>
                     <div className="flex gap-8 my-4">
                        <div className="">
                        <p className='text-4xl flex justify-center text-slate-500'><BsBicycle/></p>
@@ -66,11 +73,11 @@ const SingleProduct = () => {
                        </div>
                     </div>
                     <div class="divider"></div> 
-                    <p><small className='font-bold'> available : { stock > 0 ?"in stock" : "Not Available"   } </small></p>
-                    <p><small  className='font-bold'>Brand : {company}</small></p>
+                    <p><small className='font-bold'> available : { products.stock > 0 ?"in stock" : "Not Available"   } </small></p>
+                    <p><small  className='font-bold'>Brand : {products.company}</small></p>
                     <div class="divider"></div> 
                      {
-                        stock && <AddToCart singleProduct={singleProduct}></AddToCart>
+                        products.stock && <AddToCart products={products}></AddToCart>
                      }
                    
                  

@@ -104,7 +104,9 @@ const Header = () => {
                 </a>
               </li>
               <li>
-                <a>Dashboard</a>
+               
+               <NavLink to='/dashboard'><a>Dashboard</a></NavLink>
+              
               </li>
               <li>
               <button onClick={logout}> Sing Out </button> 

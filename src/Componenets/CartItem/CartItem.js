@@ -4,9 +4,14 @@ import { RiDeleteBin7Fill } from "react-icons/ri";
 import { useCartContext } from "../Conterxt/CartContext";
 import { BsPlusLg } from "react-icons/bs";
 import { FaMinus } from "react-icons/fa";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
 
 const CartItem = ({ id, name, image, color, price, amount }) => {
   const { removeItem, setIncrease, setDecrease } = useCartContext();
+ 
+
+ 
 
   return (
     <tr>

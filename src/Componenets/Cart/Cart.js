@@ -3,11 +3,46 @@ import CartItem from "../CartItem/CartItem";
 import { useCartContext } from "../Conterxt/CartContext";
 import { Link } from 'react-router-dom';
 import FormatPrice from "../Helpers/FormatPrice";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
 
 
 const Cart = () => {
-  const { cart,clearCart ,total_price,shipping_fee} = useCartContext();
+  const { cart,clearCart ,total_price,shipping_fee ,addToCart} = useCartContext();
+  const [user] = useAuthState(auth);
 
+ 
+
+  // const {amount,name, price,id } = cart;
+  console.log(cart);
+
+  const handleBooking = () => {
+    const cartProducts = {
+      // cartId:cart.id,
+      name:cart.name,
+      // cartAmount:amount,
+      // cartPrice:price,
+      userEmail:user.email,
+      userName:user.displayName,
+      total_price,
+      shipping_fee
+  
+    }
+  
+    fetch("http://localhost:4000/cart" ,{
+      method:"POST",
+      headers:{
+        'content-type':'application/json'
+      },
+      body: JSON.stringify(cartProducts)
+    })
+    .then(res => res.json)
+    .then(data => {
+      console.log("aaaaaaaaaaaaaaaaa");
+    })
+  
+    }
+ 
   if(cart.length === 0){
      return <div className="h-80 flex justify-center items-center text-4xl font-bold text-white-600 bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 shadow-xl ">
         <h1 className="p-32">No item in cart...</h1>
@@ -16,7 +51,7 @@ const Cart = () => {
 
   return (
     <>
-      <div class="overflow-x-auto w-full px-44 py-12">
+      <div class="overflow-x-auto flex px-24 py-8 gap-24 ">
         <table class="table w-full">
           <thead>
             <tr>
@@ -32,15 +67,11 @@ const Cart = () => {
             {cart.map((curElem) => (
               <CartItem key={curElem.id} {...curElem}></CartItem>
             ))}
+            
           </tbody>
+          
         </table>
-      </div>
-      <hr />
-      <div className="mt-6 flex justify-around ">
-        <Link to="/products"  class="px-8  py-3 rounded-none bg-purple-800 text-white border-none"> Continue Shopping</Link>
-        <button onClick={() => clearCart()} class="px-8  py-3 rounded-none bg-red-800 text-white border-none">Clear Cart</button>
-      </div>
-      <div class="card w-96 my-8  bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 shadow-xl rounded-2xl mx-40 ml-auto">
+        <div class="card w-96 h-48  bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 shadow-xl rounded-2xl flex ">
         <div class="card-body ">
           <h2 class="">Subtotal : <FormatPrice price={total_price}></FormatPrice> </h2>
           <h2 class="my-2">Shipping Fee :  <FormatPrice price={shipping_fee}></FormatPrice> </h2>
@@ -49,6 +80,15 @@ const Cart = () => {
           <h2 class="card-title">Total Order :<FormatPrice price={total_price +shipping_fee }></FormatPrice> </h2>
         </div>
       </div>
+      </div>
+      <hr />
+      <div className="mt-6 flex gap-12 ml-24 pb-10 ">
+        <Link to="/products"  class="px-8  py-3 rounded-none bg-purple-800 text-white border-none"> Continue Shopping</Link>
+        <button onClick={() => clearCart()} class="px-8  py-3 rounded-none bg-red-800 text-white border-none">Clear Cart</button>
+
+        <button onClick={() => handleBooking()} class="btn btn-wide ml-auto  rounded-none bg-green-800 text-white border-none mx-28" >PROCEED TO CHECKOUT</button>
+      </div>
+     
     </>
   );
 };

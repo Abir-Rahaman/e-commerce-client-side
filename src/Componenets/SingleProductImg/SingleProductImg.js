@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const SingleProductImg = ({ imgs = [{ url: "" }] }) => {
     const [img,setImage] = useState(imgs[0]);
   return (
+    <>
     <div className="flex">
         <div class=" flex w-32 bg-base-100 ">
       <figure>
@@ -24,9 +25,13 @@ const SingleProductImg = ({ imgs = [{ url: "" }] }) => {
       </div>
       <div className="grid items-center">
         <img className="w-72 ml-8" src={img.url} alt="" />
+
       </div>
+      
    
     </div>
+    <button class="btn btn-wide ml-auto  rounded-none bg-green-800 text-white border-none mx-28 mt-24" >PROCEED TO CHECKOUT</button>
+    </>
   );
 };
 

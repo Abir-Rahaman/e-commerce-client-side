@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom';
 const CartAmount = ({ setIncrease, setDecrease,addToCart ,products,amount}) => {
   const { id, color, stock } = products;
 
+  
 
 
  

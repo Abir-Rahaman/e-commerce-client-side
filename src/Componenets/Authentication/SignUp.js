@@ -8,6 +8,9 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Spinner from "./../Shared/Spinner";
+import useToken from './../Hooks/useToken';
+import { useEffect } from "react";
+
 
 const SignUp = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -16,16 +19,25 @@ const SignUp = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-  // const [token] = useToken(user || googleUser);
+  const [token] = useToken(user || googleUser);
+  let from = location?.state?.from?.pathname || "/";
 
   let errorMessage;
 
-  const navigate = useNavigate();
+
+  useEffect( () =>{
+    if (token ) {
+        navigate(from, { replace: true });
+    }
+}, [from, navigate ,token])
 
   if (loading || googleLoading) {
     return <Spinner></Spinner>;
@@ -39,8 +51,17 @@ const SignUp = () => {
     );
   }
 
+
+  
+  
+
+   
+  
+
   // if(token){
-  //   navigate('/booking')
+  //   navigate('/')
+
+
   // }
 
   const onSubmit = async (data) => {

@@ -13,7 +13,7 @@ const Header = () => {
   const logout = () => {
     signOut(auth);
     navigate('/')
-    // localStorage.removeItem('accessToken')
+    localStorage.removeItem('accessToken')
   };
   const navigate = useNavigate()
 
@@ -66,7 +66,7 @@ const Header = () => {
         <div className="flex">
           <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost btn-circle lg:mr-6">
-              <div className="indicator ">
+              <div className="indicator lg:ml-0  ml-56">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
@@ -92,7 +92,7 @@ const Header = () => {
           <div class="navbar-end lg:ml-0 ml-44 ">
         {user ?  <div className="dropdown dropdown-end gap-6">
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar ">
-              <div className="w-8 rounded-full flex ">
+              <div className="w-8 rounded-full flex   ">
                 <img src="https://placeimg.com/80/80/people" />
               </div>
             </label>
@@ -117,6 +117,14 @@ const Header = () => {
       </div>
         </div>
       </div>
+      <div className="navbar-end">
+        <label for="my-drawer-2" tabIndex="1" className="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+          </label>
+      </div>
+
     </div>
   );
 };

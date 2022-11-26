@@ -11,11 +11,14 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import Spinner from './../Shared/Spinner';
 import auth from '../../firebase.init';
 import { useEffect } from 'react';
+import useToken from './../Hooks/useToken';
 
 const LogIn = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
   const {register,formState: { errors },handleSubmit} = useForm();
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+
+  const [token] = useToken(user || googleUser );
   
   let errorMessage;
 
@@ -25,10 +28,10 @@ const LogIn = () => {
 
    
   useEffect( () =>{
-    if (user || googleUser ) {
+    if (token ) {
         navigate(from, { replace: true });
     }
-}, [from, navigate ,googleUser,user])
+}, [from, navigate ,token])
 
   
   if (loading || googleLoading) {

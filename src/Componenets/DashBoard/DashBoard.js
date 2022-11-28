@@ -1,10 +1,15 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { MdAccountCircle } from 'react-icons/md';
+import useAdmin from './../Hooks/useAdmin';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
 
 
 
 const DashBoard = () => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <div class="drawer drawer-mobile ">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -23,17 +28,21 @@ const DashBoard = () => {
               <Link to="/dashboard">  <a>Account Information</a></Link>
               </li>
               <li>
-              <Link to="/dashboard/allUsers">  <a>All Users</a></Link>
-              </li>
-              <li>
               <Link to="/dashboard/myOrder">  <a>My Order</a></Link>
               </li>
               <li>
               <Link to="/dashboard/myReview">  <a>My Product Reviews</a></Link>
               </li>
+              <li>
+             { admin &&  <>
+              <Link to="/dashboard/allUsers">  <a>All Users</a></Link>
+              <Link to="/dashboard/addProduct">  <a>Add Product</a></Link>
+              <Link to="/dashboard/addProductDetails">  <a>Add Product Details </a></Link>
+             </>}
+              </li>
             </div>
           </div>
-          {/* <!-- Sidebar content here --> */}
+     
         </ul>
       </div>
     </div>

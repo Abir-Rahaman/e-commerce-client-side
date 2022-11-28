@@ -16,6 +16,9 @@ import ManageAccount from "./Componenets/DashBoard/ManageAccount";
 import MyOrder from "./Componenets/DashBoard/MyOrder";
 import AllUsers from "./Componenets/DashBoard/AllUsers";
 import { Toaster } from "react-hot-toast";
+import RequireAdmin from "./Componenets/Shared/RequireAdmin";
+import AddProduct from './Componenets/DashBoard/AddProduct';
+import AddProductDetails from './Componenets/DashBoard/AddProductDetails';
 
 
 
@@ -31,7 +34,9 @@ function App() {
         <Route  path="/dashboard" element={<RequireAuth><DashBoard /></RequireAuth>}>
             <Route index element={<ManageAccount></ManageAccount>}></Route>
             <Route path='myOrder' element={<MyOrder></MyOrder>}></Route>
-            <Route path='allUsers' element={<AllUsers></AllUsers>}></Route>
+            <Route path='allUsers' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
+            <Route path='addProduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
+            <Route path='addProductDetails' element={<RequireAdmin><AddProductDetails></AddProductDetails></RequireAdmin>}></Route>
         </Route>
         <Route path="/login" element={<LogIn></LogIn>} />
         <Route path="/signIn" element={<SignUp />} />

@@ -5,7 +5,11 @@ import UserRow from './UserRow';
 
 const AllUsers = () => {
 
-    const{data : users ,isLoading} = useQuery('users', () => fetch('http://localhost:4000/user').then(res => res.json()));
+    const{data : users ,isLoading, refetch} = useQuery('users', () => fetch('http://localhost:4000/user' ,{
+        headers:{
+            authorization :`Bearer${localStorage.getItem("accessToken")}`
+        }
+    }).then(res => res.json()));
     if(isLoading){
         return <Spinner></Spinner>
     }
@@ -24,7 +28,7 @@ const AllUsers = () => {
             </thead>
             <tbody>
               {users.map((user, index) => (
-                <UserRow user={user} index={index}  ></UserRow>
+                <UserRow user={user} refetch={refetch} index={index}  ></UserRow>
               ))}
             </tbody>
           </table>

@@ -1,8 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { useQuery } from "react-query";
-import Spinner from "../Shared/Spinner";
 
 const AddProduct = () => {
   const {
@@ -13,13 +11,6 @@ const AddProduct = () => {
   } = useForm();
   const imgKey = "69fb380d3c03cfe1603dcae97afcc89a";
 
-  const { data, isLoading } = useQuery("products", () => fetch("http://localhost:4000/addProducts",{
-    method: "GET",
-    headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-  }).then((res) => res.json()));
 
   const onSubmit = async (data) => {
 
@@ -86,9 +77,7 @@ const AddProduct = () => {
         toast.success("Movie Added Successfully for User");
         console.log(result);
       });
-    if (isLoading) {
-      return <Spinner />;
-    }
+   
   };
 
   return (

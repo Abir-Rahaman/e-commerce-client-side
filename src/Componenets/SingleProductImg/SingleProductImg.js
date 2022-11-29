@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const SingleProductImg = ({ imgs = [{ url: "" }] }) => {
     const [img,setImage] = useState(imgs[0]);
+    console.log(imgs[0])
   return (
     <>
     <div className="flex">

@@ -2,14 +2,16 @@ import React from "react";
 import logo from "../../images/loogo.png";
 import { useCartContext } from "../Conterxt/CartContext";
 import { Link,NavLink,useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import { useAuthState} from 'react-firebase-hooks/auth';
 import auth from './../../firebase.init';
 import FormatPrice from './../Helpers/FormatPrice';
+import { TiPlus } from 'react-icons/ti';
+
 
 const Header = () => {
   const {total_item ,total_price ,shipping_fee} = useCartContext();
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
     navigate('/')
@@ -90,7 +92,7 @@ const Header = () => {
           </div>
          
           <div class="navbar-end lg:ml-0 ml-44 ">
-        {user ?  <div className="dropdown dropdown-end gap-6">
+        {user ?  <div className="dropdown dropdown-end ">
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar ">
               <div className="w-8 rounded-full flex   ">
                 <img src="https://placeimg.com/80/80/people" />
@@ -115,6 +117,9 @@ const Header = () => {
           </div> :  <Link to="/login"> <button class="btn text-black rounded-full  bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-400 hover:duration-500 px-8 border-none"> LogIn </button></Link> }
         
       </div>
+  
+      
+
         </div>
       </div>
       <div className="navbar-end">
@@ -123,7 +128,11 @@ const Header = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
             </svg>
           </label>
+          <div className="btn text-black rounded-full  bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-400 hover:duration-500 px-8 border-none font-bold ">
+      <Link  className="flex  gap-2 justify-center items-center" to="/post"> <TiPlus className="text-xl"/>  Post Your AD</Link>
       </div>
+      </div>
+     
 
     </div>
   );

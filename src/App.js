@@ -19,6 +19,7 @@ import { Toaster } from "react-hot-toast";
 import RequireAdmin from "./Componenets/Shared/RequireAdmin";
 import AddProduct from './Componenets/DashBoard/AddProduct';
 import AddProductDetails from './Componenets/DashBoard/AddProductDetails';
+import PostProducts from './Componenets/PostProducts/PostProducts';
 
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/singleProduct/:id" element={<SingleProduct />} />
         <Route path="/products" element={<Products/>} />
         <Route path="/cart" element={<RequireAuth><Cart /></RequireAuth>} />
+        <Route path="/post" element={<RequireAuth><PostProducts /></RequireAuth>} />
         <Route  path="/dashboard" element={<RequireAuth><DashBoard /></RequireAuth>}>
             <Route index element={<ManageAccount></ManageAccount>}></Route>
             <Route path='myOrder' element={<MyOrder></MyOrder>}></Route>

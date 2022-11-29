@@ -1,17 +1,18 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { useQuery } from "react-query";
-import Spinner from "../Shared/Spinner";
+
+
 
 const AddProductDetails = () => {
+ 
   const {
     register,
-    reset,
     formState: { errors },
     handleSubmit,
   } = useForm();
   const imgKey = "69fb380d3c03cfe1603dcae97afcc89a";
+  
 
   const onSubmit = async (data) => {
     const formData = new FormData();
@@ -57,6 +58,32 @@ const AddProductDetails = () => {
               toast.success("Movie Added Successfully for User");
               console.log(result);
             });
+
+            fetch("http://localhost:4000/productDetails", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(product),
+            })
+              .then((res) => res.json())
+              .then((inserted) => {
+                if (inserted) {
+                  toast.success(" Product Added Successfully Done");
+                } else {
+                  toast.error("Sorry ! Something went wrong");
+                }
+  
+             
+              });
+
+
+
+
+
+           
+          
         }
       });
   };
@@ -221,6 +248,7 @@ const AddProductDetails = () => {
           />
         </div>
       </form>
+     
     </div>
   );
 };

@@ -192,7 +192,7 @@ const PostProducts = () => {
                         class="input  input-bordered w-full max-w-xs"
                       />
                     </div>
-                    <div class="form-control">
+                    <div class="form-control ">
                       <textarea  {...register("description", {
                           required: {
                             value: true,

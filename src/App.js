@@ -21,6 +21,7 @@ import AddProduct from './Componenets/DashBoard/AddProduct';
 import AddProductDetails from './Componenets/DashBoard/AddProductDetails';
 import PostProducts from './Componenets/PostProducts/PostProducts';
 import ShowOldProducts from './Componenets/PostProducts/ShowOldProducts';
+import CheckOut from './Componenets/CheckOut/CheckOut';
 
 
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/products" element={<Products/>} />
         <Route path="/cart" element={<RequireAuth><Cart /></RequireAuth>} />
         <Route path="/post" element={<RequireAuth><PostProducts /></RequireAuth>} />
+        <Route path="/cart/checkOut" element={<RequireAuth><CheckOut /></RequireAuth>} />
         <Route  path="/dashboard" element={<RequireAuth><DashBoard /></RequireAuth>}>
             <Route index element={<ManageAccount></ManageAccount>}></Route>
             <Route path='myOrder' element={<MyOrder></MyOrder>}></Route>

@@ -10,24 +10,18 @@ import auth from './../../firebase.init';
 const Cart = () => {
   const { cart,clearCart ,total_price,shipping_fee ,addToCart} = useCartContext();
   const [user] = useAuthState(auth);
-  console.log(cart)
 
-
- 
-
-  // const {amount,name, price,id } = cart;
-  
   const handleBooking = () => {
     const cartProducts = {
       cartId:cart[0].id,
-      name:cart.name,
-      // cartAmount:amount,
-      // cartPrice:price,
+      name:cart[0].name,
+      cartAmount:cart.amount,
+      cartPrice:cart[0].price,
       userEmail:user.email,
       userName:user.displayName,
       total_price,
       shipping_fee,
-      total : total_price +shipping_fee
+      price : total_price +shipping_fee
   
     }
   
@@ -87,7 +81,7 @@ const Cart = () => {
       <div className="mt-6 flex gap-12 ml-24 pb-10 ">
         <Link to="/products"  class="px-8  py-3 rounded-none bg-purple-800 text-white border-none"> Continue Shopping</Link>
         <button onClick={() => clearCart()} class="px-8  py-3 rounded-none bg-red-800 text-white border-none">Clear Cart</button>
-        <button onClick={() => handleBooking()} class="btn btn-wide ml-auto  rounded-none bg-green-800 text-white border-none mx-28" >PROCEED TO CHECKOUT</button>
+        <Link to='/cart/checkOut' onClick={() => handleBooking()} class="btn btn-wide ml-auto  rounded-none bg-green-800 text-white border-none mx-28" >PROCEED TO CHECKOUT</Link>
       </div>
      
     </>

@@ -31,7 +31,7 @@ const SingleProductImg = ({ imgs = [{ url: "" }] }) => {
       
    
     </div>
-    <button class="btn btn-wide ml-auto  rounded-none bg-green-800 text-white border-none mx-28 mt-24" >PROCEED TO CHECKOUT</button>
+   
     </>
   );
 };

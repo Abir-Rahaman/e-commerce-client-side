@@ -25,7 +25,9 @@ const Details = ({ product }) => {
 
                 <h2 className="font-bold  text-purple-400 text-center">Room No:{room}</h2>
               <p className="font-bold text-purple-500">Products Description</p>
-              <p className="border-2 border-purple-500 rounded-xl ">{description}</p>
+            <div className="">
+            <p className="border-2 border-purple-500 rounded-xl h-12">{description}</p>
+            </div>
               <div className="pt-4 flex justify-between">
                 <div className="">
                   <p class="px-3  font-bold pt-1  pb-1 flex gap-2"> <TbPhoneCall className="text-xl  text-purple-400"/> {number}</p>

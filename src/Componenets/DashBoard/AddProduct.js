@@ -158,7 +158,7 @@ const AddProduct = () => {
             </div>
           </div>
 
-          <div class="form-control  w-full max-w-xs">
+          <div class="form-control  w-full max-w-xs mx-auto">
             <input
               {...register("image", {
                 required: {
@@ -168,7 +168,7 @@ const AddProduct = () => {
               })}
               type="file"
               placeholder="Movie Poster"
-              class="input  input-bordered w-full max-w-xs pt-2"
+              class="input  input-bordered w-full max-w-xs mx-auto pt-2"
             />
             <label class="label">
               {errors.picture?.type === "required" && <span class="label-text-alt text-red-600"> {errors.picture.message} </span>}

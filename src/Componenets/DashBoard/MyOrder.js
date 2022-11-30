@@ -4,11 +4,17 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "./../../firebase.init";
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import { useCartContext } from "../Conterxt/CartContext";
+import CartItem from './../CartItem/CartItem';
+import FormatPrice from "../Helpers/FormatPrice";
 
 const MyOrder = () => {
   const [orders, setOrders] = useState([]);
+  
   const [user] = useAuthState(auth);
   const navigate =useNavigate();
+  const {cart} = useCartContext(user);
+  console.log(orders)
 
   useEffect(() => {
     if (user) {
@@ -35,29 +41,30 @@ const MyOrder = () => {
           setOrders(data)
         });
     }
-  }, [user]);
+  }, [user,navigate]);
   return (
+    <>
+    
 
       <div class="overflow-x-auto">
+
         <table class="table table-zebra w-full">
           {/* <!-- head --> */}
           <thead>
             <tr>
               <th></th>
-              <th>Product Name</th>
+              <th>Product Id</th>
               <th>Product Price</th>
-              <th>Product Quantity</th>
-              <th>Total Price</th>
-              <th>shipping Cost</th>
+              <th> Owner Name</th>
+              <th> Owner Email</th>
             </tr>
           </thead>
           <tbody>
             {
                 orders.map((order,index) => <tr>
                     <th>{index+1}</th>
-                    <td>Cy Ganderton</td>
-                    <td>Quality Control Specialist</td>
-                    <td>Blue</td>
+                    <td>{order.cartId}</td>
+                    <td><FormatPrice price={order.total_price}></FormatPrice></td>
                     <td>{order.userName}</td>
                     <td>{order.userEmail}</td>
                   </tr> )
@@ -68,6 +75,7 @@ const MyOrder = () => {
         </table>
       </div>
 
+      </>
   );
 };
 

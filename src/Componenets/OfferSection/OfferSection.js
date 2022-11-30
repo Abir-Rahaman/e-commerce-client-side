@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 const OfferSection = () => {
   return (
   <>
-  <NavLink className="flex justify-center" to='products'><button class="btn btn-warning ">Warning</button></NavLink>
+  <NavLink className="flex justify-center" to='products'><button class="btn border-none text-black bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 ">See More...</button></NavLink>
    <div className="my-20">
     <h1 className="text-center text-3xl font-bold mb-12 text-purple-400"> Our Target Market Based Only Student</h1>
     <div className="lg:flex justify-evenly lg:px-0  px-6">

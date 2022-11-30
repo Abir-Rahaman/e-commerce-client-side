@@ -4,16 +4,16 @@ import { RiDeleteBin7Fill } from "react-icons/ri";
 import { useCartContext } from "../Conterxt/CartContext";
 import { BsPlusLg } from "react-icons/bs";
 import { FaMinus } from "react-icons/fa";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from './../../firebase.init';
+
 
 const CartItem = ({ id, name, image, color, price, amount }) => {
-  const { removeItem, setIncrease, setDecrease } = useCartContext();
+  const { removeItem, setIncrease, setDecrease,cart } = useCartContext();
  
-
+console.log(cart);
  
 
   return (
+  <>
     <tr>
       <td>
         <div class="avatar">
@@ -52,10 +52,14 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
       <td>
         <button onClick={() => removeItem(id)} class="btn bg-transparent rounded-full">
           <RiDeleteBin7Fill className="text-xl text-red-500" />
+        
         </button>
       </td>
       <hr />
+      
     </tr>
+   
+  </>
   );
 };
 

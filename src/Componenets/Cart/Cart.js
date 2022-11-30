@@ -16,18 +16,18 @@ const Cart = () => {
  
 
   // const {amount,name, price,id } = cart;
-  console.log(cart);
-
+  
   const handleBooking = () => {
     const cartProducts = {
-      // cartId:cart.id,
+      cartId:cart[0].id,
       name:cart.name,
       // cartAmount:amount,
       // cartPrice:price,
       userEmail:user.email,
       userName:user.displayName,
       total_price,
-      shipping_fee
+      shipping_fee,
+      total : total_price +shipping_fee
   
     }
   
@@ -95,3 +95,5 @@ const Cart = () => {
 };
 
 export default Cart;
+
+

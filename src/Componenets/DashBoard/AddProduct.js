@@ -9,11 +9,9 @@ const AddProduct = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const imgKey = "69fb380d3c03cfe1603dcae97afcc89a";
-
 
   const onSubmit = async (data) => {
-
+    const imgKey = "69fb380d3c03cfe1603dcae97afcc89a";
     const formData = new FormData();
     const image = data.image[0];
     formData.append("image", image);
@@ -26,21 +24,16 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-       
+
         if (result.success) {
-            const image = result.data.url;
-        
+          const image = result.data.url;
           const product = {
-            
-        
             name: data.name,
             price: data.price,
             company: data.company,
-            image: image,
-            description:data.description,
+            description: data.description,
             category: data.category,
-
-            
+            image: image,
           };
           fetch("http://localhost:4000/newProduct", {
             method: "POST",
@@ -63,7 +56,7 @@ const AddProduct = () => {
         }
       });
 
-    const ClientUrl = 'http://localhost:4000/products';
+    const ClientUrl = "http://localhost:4000/products";
     fetch(ClientUrl, {
       method: "POST",
       headers: {
@@ -77,78 +70,76 @@ const AddProduct = () => {
         toast.success("Movie Added Successfully for User");
         console.log(result);
       });
-   
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mx-auto">
-      
-            <div class="form-control  w-full max-w-xs mx-auto">
-              <input
-                {...register("name", {
-                  required: {
-                    value: true,
-                    message: "Product Name is required",
-                  },
-                })}
-                type="text"
-                placeholder="Product Name"
-                class="input input-bordered w-full max-w-xs"
-              />
-              <label class="label">
-                {errors.name?.type === "required" && <span class="label-text-alt text-red-600"> {errors.name.message} </span>}
-              </label>
-            </div>
-            <div class="form-control  w-full max-w-xs mx-auto">
-              <input
-                {...register("price", {
-                  required: {
-                    value: true,
-                    message: "Product Price is required",
-                  },
-                })}
-                type="text"
-                placeholder="Product Price"
-                class="input input-bordered w-full max-w-xs"
-              />
-              <label class="label">
-                {errors.price?.type === "required" && <span class="label-text-alt text-red-600"> {errors.price.message} </span>}
-              </label>
-            </div>
-            <div class="form-control  w-full max-w-xs mx-auto">
-              <input
-                {...register("company", {
-                  required: {
-                    value: true,
-                    message: "Product Company is required",
-                  },
-                })}
-                type="text"
-                placeholder="Product Company"
-                class="input input-bordered w-full max-w-xs"
-              />
-              <label class="label">
-                {errors.company?.type === "required" && <span class="label-text-alt text-red-600"> {errors.company.message} </span>}
-              </label>
-            </div>
-            <div class="form-control  w-full max-w-xs mx-auto">
-              <input
-                {...register("category", {
-                  required: {
-                    value: true,
-                    message: "category Name is required",
-                  },
-                })}
-                type="text"
-                placeholder="category Name"
-                class="input  input-bordered w-full max-w-xs"
-              />
-              <label class="label">
-                {errors.category?.type === "required" && <span class="label-text-alt text-red-600"> {errors.Catagories.message} </span>}
-              </label>
-    
+          <div class="form-control  w-full max-w-xs mx-auto">
+            <input
+              {...register("name", {
+                required: {
+                  value: true,
+                  message: "Product Name is required",
+                },
+              })}
+              type="text"
+              placeholder="Product Name"
+              class="input input-bordered w-full max-w-xs"
+            />
+            <label class="label">
+              {errors.name?.type === "required" && <span class="label-text-alt text-red-600"> {errors.name.message} </span>}
+            </label>
+          </div>
+          <div class="form-control  w-full max-w-xs mx-auto">
+            <input
+              {...register("price", {
+                required: {
+                  value: true,
+                  message: "Product Price is required",
+                },
+              })}
+              type="text"
+              placeholder="Product Price"
+              class="input input-bordered w-full max-w-xs"
+            />
+            <label class="label">
+              {errors.price?.type === "required" && <span class="label-text-alt text-red-600"> {errors.price.message} </span>}
+            </label>
+          </div>
+          <div class="form-control  w-full max-w-xs mx-auto">
+            <input
+              {...register("company", {
+                required: {
+                  value: true,
+                  message: "Product Company is required",
+                },
+              })}
+              type="text"
+              placeholder="Product Company"
+              class="input input-bordered w-full max-w-xs"
+            />
+            <label class="label">
+              {errors.company?.type === "required" && <span class="label-text-alt text-red-600"> {errors.company.message} </span>}
+            </label>
+          </div>
+          <div class="form-control  w-full max-w-xs mx-auto">
+            <input
+              {...register("category", {
+                required: {
+                  value: true,
+                  message: "category Name is required",
+                },
+              })}
+              type="text"
+              placeholder="category Name"
+              class="input  input-bordered w-full max-w-xs"
+            />
+            <label class="label">
+              {errors.category?.type === "required" && <span class="label-text-alt text-red-600"> {errors.Catagories.message} </span>}
+            </label>
+
             <div class="form-control  w-full max-w-xs mx-auto">
               <input
                 {...register("description", {
@@ -167,12 +158,12 @@ const AddProduct = () => {
             </div>
           </div>
 
-          <div class="form-control  w-full max-w-xs mx-auto">
+          <div class="form-control  w-full max-w-xs">
             <input
               {...register("image", {
                 required: {
                   value: true,
-                  message: "Product image is required",
+                  message: "Movie Poster is required",
                 },
               })}
               type="file"
@@ -180,10 +171,9 @@ const AddProduct = () => {
               class="input  input-bordered w-full max-w-xs pt-2"
             />
             <label class="label">
-              {errors.image?.type === "required" && <span class="label-text-alt text-red-600"> {errors.image.message} </span>}
+              {errors.picture?.type === "required" && <span class="label-text-alt text-red-600"> {errors.picture.message} </span>}
             </label>
           </div>
-        
         </div>
 
         <div class="form-control mt-6 mx-64 pb-8">

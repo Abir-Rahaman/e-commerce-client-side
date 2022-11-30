@@ -5,6 +5,7 @@ import OfferSection from './../OfferSection/OfferSection';
 import QureySection from './../QureySection/QureySection';
 import FeatureProducts from './../FeatureProducts/FeatureProducts';
 import Products from '../Products/Products';
+import ShowOldProducts from '../PostProducts/ShowOldProducts';
 
 const Home = () => {
     return (
@@ -13,7 +14,9 @@ const Home = () => {
             <FeatureProducts></FeatureProducts>
             <OfferSection></OfferSection>
             <Partner></Partner>
+            <ShowOldProducts></ShowOldProducts>
             <QureySection></QureySection>
+            
            
         </div>
     );

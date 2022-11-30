@@ -20,6 +20,7 @@ import RequireAdmin from "./Componenets/Shared/RequireAdmin";
 import AddProduct from './Componenets/DashBoard/AddProduct';
 import AddProductDetails from './Componenets/DashBoard/AddProductDetails';
 import PostProducts from './Componenets/PostProducts/PostProducts';
+import ShowOldProducts from './Componenets/PostProducts/ShowOldProducts';
 
 
 
@@ -40,6 +41,7 @@ function App() {
             <Route path='addProduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
             <Route path='addProductDetails' element={<RequireAdmin><AddProductDetails></AddProductDetails></RequireAdmin>}></Route>
         </Route>
+        <Route path="/oldProducts" element={<ShowOldProducts></ShowOldProducts>} />
         <Route path="/login" element={<LogIn></LogIn>} />
         <Route path="/signIn" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />

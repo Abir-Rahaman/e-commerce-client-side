@@ -4,8 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "./../../firebase.init";
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
-import { useCartContext } from "../Conterxt/CartContext";
-import CartItem from './../CartItem/CartItem';
+
 import FormatPrice from "../Helpers/FormatPrice";
 
 const MyOrder = () => {
@@ -13,8 +12,7 @@ const MyOrder = () => {
   
   const [user] = useAuthState(auth);
   const navigate =useNavigate();
-  const {cart} = useCartContext(user);
-  console.log(orders)
+
 
   useEffect(() => {
     if (user) {
@@ -59,7 +57,7 @@ const MyOrder = () => {
               <th> Owner Email</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200">
             {
                 orders.map((order,index) => <tr>
                     <th>{index+1}</th>

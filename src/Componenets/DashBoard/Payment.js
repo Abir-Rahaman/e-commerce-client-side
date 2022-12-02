@@ -19,6 +19,7 @@ const Payment = () => {
   if (isLoading) {
     return <Spinner />;
   }
+  
   return (
     <div className="mx-auto ">
        
@@ -34,7 +35,7 @@ const Payment = () => {
       <div class="card w-96 bg-gradient-to-r from-green-300 via-red-100 to-orange-300 ">
         <div class="card-body">
         <Elements stripe={stripePromise}>
-      <CheckoutForm />
+      <CheckoutForm order={order} />
     </Elements>
         </div>
       </div>

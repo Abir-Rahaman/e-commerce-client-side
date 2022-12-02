@@ -9,26 +9,28 @@ import "./Componenets/HeroSection/HeroSection.css";
 import { AppProvider } from "./Componenets/Conterxt/ProductContext";
 import { FilterContextProvider } from "./Componenets/Conterxt/FilterContext";
 import { CartProvider } from "./Componenets/Conterxt/CartContext";
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import { HelmetProvider } from "react-helmet-async";
 
-const queryClient = new QueryClient()
-
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <AppProvider>
-        <FilterContextProvider>
-          <CartProvider>
-            <App />
-          </CartProvider>
-        </FilterContextProvider>
-      </AppProvider>
-      </QueryClientProvider>
-    </React.StrictMode>
-  </BrowserRouter>
+  <HelmetProvider>
+    <BrowserRouter>
+      <React.StrictMode>
+        <QueryClientProvider client={queryClient}>
+          <AppProvider>
+            <FilterContextProvider>
+              <CartProvider>
+                <App />
+              </CartProvider>
+            </FilterContextProvider>
+          </AppProvider>
+        </QueryClientProvider>
+      </React.StrictMode>
+    </BrowserRouter>
+  </HelmetProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

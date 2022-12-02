@@ -36,6 +36,7 @@ const UserRow = ({user,index,refetch,handleDeleteUser}) => {
         })
       
       }
+      
     return (
 
         <tr>

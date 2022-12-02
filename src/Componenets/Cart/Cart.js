@@ -8,7 +8,7 @@ import auth from './../../firebase.init';
 
 
 const Cart = () => {
-  const { cart,clearCart ,total_price,shipping_fee ,addToCart} = useCartContext();
+  const { cart,clearCart ,total_price,shipping_fee } = useCartContext();
   const [user] = useAuthState(auth);
 
   const handleBooking = () => {

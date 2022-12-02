@@ -3,6 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const CheckOut = () => {
   const {
@@ -35,7 +36,7 @@ const CheckOut = () => {
       .then((res) => res.json())
       .then((inserted) => {
         if (inserted) {
-          toast.success(" Your Address Successfully Saved");
+          toast.success(" Your Address Successfully Saved & Go to My Order Section For Payment");
         } else {
           toast.error("Sorry ! Something went wrong");
         }
@@ -47,10 +48,11 @@ const CheckOut = () => {
 
   return (
     <div className="bg-base-200  flex-col">
-      <div class=" pt-24 pb-6 px-56">
+      <h1 className="text-center text-3xl font-bold text-purple-400 pt-24">Add Your Delivery Address...</h1>
+      <div class=" py-6 px-56">
         <div class=" flex-col lg:flex-row-reverse ">
           <div class="card w-full shadow-2xl bg-base-10">
-            <div class="card-body w-full pt-20">
+            <div class="card-body w-full pt-10">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex justify-around gap-36">
                   <div class="form-control w-full">
@@ -174,7 +176,7 @@ const CheckOut = () => {
                   </div>
                 </div>
                 <div class="form-control mt-6 w-56">
-                  <input
+             <input
                     className="btn border-4 px-6 py-2 bg-transparent text-black rounded-full font-bold hover:bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 duration-700"
                     type="submit"
                     value="Sava and Continue"

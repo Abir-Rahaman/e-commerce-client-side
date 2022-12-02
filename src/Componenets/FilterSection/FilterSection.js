@@ -20,7 +20,7 @@ const FilterSection = () => {
   };
   const categoryOnlyData = getUniqueData(all_Products, "category");
   const companyOnlyData = getUniqueData(all_Products, "company");
-  const colorsOnlyDta = getUniqueData(all_Products, "colors");
+
   return (
     <div className="my-8 ml-12">
       <form onSubmit={(e) => e.preventDefault()}>

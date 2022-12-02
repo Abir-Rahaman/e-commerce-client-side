@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import Spinner from '../Shared/Spinner';
 import UserRow from './UserRow';
+import { toast } from 'react-hot-toast';
 
 const AllUsers = () => {
 
@@ -10,9 +11,25 @@ const AllUsers = () => {
             authorization :`Bearer${localStorage.getItem("accessToken")}`
         }
     }).then(res => res.json()));
+
+    const handleDeleteUser = user =>{
+      fetch(`http://localhost:4000/user/${user._id}`,{
+        method:"DELETE",
+        headers:{
+          authorization :`Bearer${localStorage.getItem("accessToken")}`
+      }
+      })
+      .then(res => res.json())
+      .then(data => {
+        toast.success("Successfully Deleted")
+        refetch();
+      })
+
+    }
     if(isLoading){
         return <Spinner></Spinner>
     }
+
     return (
         <div>
         <h1 className="text-xl text-green-300 font-bold"> Total Visitor {users.length}</h1>
@@ -28,7 +45,7 @@ const AllUsers = () => {
             </thead>
             <tbody>
               {users.map((user, index) => (
-                <UserRow user={user} refetch={refetch} index={index}  ></UserRow>
+                <UserRow user={user} refetch={refetch} handleDeleteUser={handleDeleteUser} index={index}  ></UserRow>
               ))}
             </tbody>
           </table>

@@ -5,7 +5,7 @@ const ListView = ({ products }) => {
   return (
     <div>
       {products.map((curElem) => {
-        const { id, name, image, description } = curElem;
+        const { _id, name, image, description } = curElem;
         return (
           <div class=" card lg:card-side bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200  shadow-xl my-20">
             <figure>
@@ -15,7 +15,7 @@ const ListView = ({ products }) => {
               <h2 class="card-title">{name}</h2>
               <p className="lg:w-80">{description.slice(0,90)}...</p>
               <div class="card-actions ">
-                <NavLink to={`/singleProduct/${id}`}>
+                <NavLink to={`/singleProduct/${_id}`}>
                   <button class="btn btn-outline btn-success">Details info</button>
                 </NavLink>
               </div>

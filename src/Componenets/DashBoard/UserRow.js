@@ -1,7 +1,11 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
+import { RiDeleteBin7Fill } from 'react-icons/ri';
 
-const UserRow = ({user,index,refetch,setDeleteAdmin}) => {
+
+
+
+const UserRow = ({user,index,refetch,handleDeleteUser}) => {
     const { email , role } = user;
     const makeAdmin = () => {
         fetch(`http://localhost:4000/user/admin/${email}`,{
@@ -42,8 +46,7 @@ const UserRow = ({user,index,refetch,setDeleteAdmin}) => {
         </td>
         <td>
 
-          <label onClick={() => setDeleteAdmin(user)} for="delete-modal" class="btn btn-xs bg-red-500 text-white border-none">Delete Admin
-      </label>
+          <label onClick={() => handleDeleteUser(user)} for="delete-modal" class="btn btn-xs bg-red-500 text-white border-none"><RiDeleteBin7Fill/></label>
         </td>
       </tr>
     );

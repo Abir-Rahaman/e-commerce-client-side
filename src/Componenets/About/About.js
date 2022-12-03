@@ -11,10 +11,8 @@ const About = () => {
           <img src={about} alt="" />
         </div>
         <div className="">
-          <p className="text-purple-400 font-bold mb-4">
-           About Us
-            <h1 className="text-2xl text-purple-500 w-96">A Campus Leading & Popular Online Shopping Solution Provider.</h1>
-          </p>
+          <p className="text-purple-400 font-bold mb-4">About Us </p>
+          <h1 className="text-3xl text-purple-500 w-96">A Campus Leading & Popular Online Shopping Solution Provider.</h1>
         </div>
       </div>
     </div>

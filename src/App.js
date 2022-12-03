@@ -25,6 +25,9 @@ import CheckOut from './Componenets/CheckOut/CheckOut';
 import Payment from "./Componenets/DashBoard/Payment";
 import About from './Componenets/About/About';
 import Contact from './Componenets/Contact/Contact';
+import Review from './Componenets/Review/Review';
+import UserReview from './Componenets/DashBoard/UserReview';
+import Blog from './Componenets/Shared/Blog';
 
 
 
@@ -44,6 +47,7 @@ function App() {
         <Route  path="/dashboard" element={<RequireAuth><DashBoard /></RequireAuth>}>
             <Route index element={<ManageAccount></ManageAccount>}></Route>
             <Route path='myOrder' element={<MyOrder></MyOrder>}></Route>
+            <Route path='myReview' element={<UserReview></UserReview>}></Route>
             <Route path='payment/:id' element={<Payment></Payment>}></Route>
             <Route path='allUsers' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
             <Route path='addProduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
@@ -52,8 +56,10 @@ function App() {
         <Route path="/oldProducts" element={<ShowOldProducts></ShowOldProducts>} />
         <Route path="/about" element={<About></About>} />
         <Route path="/contact" element={<Contact></Contact>} />
+        <Route path="/myReview" element={<Review></Review>} />
         <Route path="/login" element={<LogIn></LogIn>} />
         <Route path="/signIn" element={<SignUp />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>

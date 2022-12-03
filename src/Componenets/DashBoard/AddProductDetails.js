@@ -89,7 +89,7 @@ const AddProductDetails = () => {
   };
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 pt-6">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mx-auto">
           <div class="form-control  w-full max-w-xs mx-auto">

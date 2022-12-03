@@ -76,11 +76,11 @@ const AddProduct = () => {
 
   return (
     <div className="bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 ">
-      <div class="mx-auto">
+      <div class="">
         <div class="hero-content flex-col lg:flex-row ">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="text-center">
-              <div class="form-control  w-full max-w-xs">
+            <div className="text-center ">
+              <div class="form-control  w-full max-w-xs mx-auto">
                 <input
                   {...register("name", {
                     required: {
@@ -96,7 +96,7 @@ const AddProduct = () => {
                   {errors.name?.type === "required" && <span class="label-text-alt text-red-600"> {errors.name.message} </span>}
                 </label>
               </div>
-              <div class="form-control  w-full max-w-xs">
+              <div class="form-control  w-full max-w-xs mx-auto">
                 <input
                   {...register("price", {
                     required: {
@@ -113,7 +113,7 @@ const AddProduct = () => {
                 </label>
               </div>
 
-              <div class="form-control  w-full max-w-xs">
+              <div class="form-control  w-full max-w-xs mx-auto">
                 <input
                   {...register("company", {
                     required: {
@@ -129,7 +129,7 @@ const AddProduct = () => {
                   {errors.company?.type === "required" && <span class="label-text-alt text-red-600"> {errors.company.message} </span>}
                 </label>
               </div>
-              <div class="form-control  w-full max-w-xs">
+              <div class="form-control  w-full max-w-xs mx-auto">
                 <input
                   {...register("description", {
                     required: {
@@ -145,7 +145,7 @@ const AddProduct = () => {
                   {errors.description?.type === "required" && <span class="label-text-alt text-red-600"> {errors.description.message} </span>}
                 </label>
               </div>
-              <div class="form-control  w-full max-w-xs">
+              <div class="form-control  w-full max-w-xs mx-auto">
                 <input
                   {...register("category", {
                     required: {
@@ -162,7 +162,7 @@ const AddProduct = () => {
                 </label>
               </div>
 
-              <div class="form-control  w-full max-w-xs">
+              <div class="form-control  w-full max-w-xs mx-auto">
                 <input
                   {...register("image", {
                     required: {
@@ -179,7 +179,7 @@ const AddProduct = () => {
                 </label>
               </div>
 
-              <div class="form-control mt-6 mx-64 pb-8">
+              <div class="form-control mt-6 mx-64 pb-8 mx-auto">
                 <input
                   className="btn btn-wide border-4 px-6 py-2 bg-transparent  text-black rounded-full font-bold hover: bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 duration-700"
                   type="submit"

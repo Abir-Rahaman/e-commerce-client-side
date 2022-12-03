@@ -153,7 +153,7 @@ const AddProductDetails = () => {
               class="input  input-bordered w-full max-w-xs"
             />
             <label class="label">
-              {errors.category?.type === "required" && <span class="label-text-alt text-red-600"> {errors.Catagories.message} </span>}
+              {errors.category?.type === "required" && <span class="label-text-alt text-red-600"> {errors.category.message} </span>}
             </label>
 
             <div class="form-control  w-full max-w-xs mx-auto">

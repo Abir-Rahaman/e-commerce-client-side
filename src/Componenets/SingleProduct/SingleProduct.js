@@ -13,6 +13,7 @@ import { FcApproval } from 'react-icons/fc';
 import Rating from './../Shared/Rating';
 import AddToCart from './../Shared/AddToCart';
 import { useState } from 'react';
+import PageTitle from './../Shared/PageTitle';
 
 
 
@@ -39,6 +40,7 @@ const SingleProduct = () => {
   
     return (
         <div>
+        <PageTitle title='single product'></PageTitle>
             <PageNavigation title={products.name}></PageNavigation>
             <div className="flex justify-center gap-28 mt-8">
                 <div className="">

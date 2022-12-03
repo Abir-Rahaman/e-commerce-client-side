@@ -23,6 +23,8 @@ import PostProducts from './Componenets/PostProducts/PostProducts';
 import ShowOldProducts from './Componenets/PostProducts/ShowOldProducts';
 import CheckOut from './Componenets/CheckOut/CheckOut';
 import Payment from "./Componenets/DashBoard/Payment";
+import About from './Componenets/About/About';
+import Contact from './Componenets/Contact/Contact';
 
 
 
@@ -48,6 +50,8 @@ function App() {
             <Route path='addProductDetails' element={<RequireAdmin><AddProductDetails></AddProductDetails></RequireAdmin>}></Route>
         </Route>
         <Route path="/oldProducts" element={<ShowOldProducts></ShowOldProducts>} />
+        <Route path="/about" element={<About></About>} />
+        <Route path="/contact" element={<Contact></Contact>} />
         <Route path="/login" element={<LogIn></LogIn>} />
         <Route path="/signIn" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />

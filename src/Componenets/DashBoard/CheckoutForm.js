@@ -13,7 +13,7 @@ const CheckoutForm = ({ order }) => {
   const [clientSecret, setClientSecret] = useState("");
   const { name, price, userEmail, userName, _id } = order;
   useEffect(() => {
-    fetch("http://localhost:4000/create-payment-intent", {
+    fetch("https://final-defense-project-server-side-abir-rahaman-abir-rahaman.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +73,7 @@ const CheckoutForm = ({ order }) => {
         transactionId: paymentIntent.id,
         itemOwner: userName,
       };
-      fetch(`http://localhost:4000/cart/${_id}`, {
+      fetch(`https://final-defense-project-server-side-abir-rahaman-abir-rahaman.vercel.app/cart/${_id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

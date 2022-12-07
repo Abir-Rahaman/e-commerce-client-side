@@ -13,7 +13,7 @@ const stripePromise = loadStripe("pk_test_51L18qLA4o5tgtQUCryMTWsArjQnagTRL3XcMo
 
 const Payment = () => {
   const { id } = useParams();
-  const url = `http://localhost:4000/cart/${id}`;
+  const url = `https://final-defense-project-server-side-abir-rahaman-abir-rahaman.vercel.app/cart/${id}`;
   const { data: order, isLoading } = useQuery(["order", id], () => fetch(url).then((res) => res.json()));
   const [user] = useAuthState(auth);
   if (isLoading) {

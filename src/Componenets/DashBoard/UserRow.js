@@ -5,7 +5,7 @@ import { RiDeleteBin7Fill } from "react-icons/ri";
 const UserRow = ({ user, index, refetch, handleDeleteUser }) => {
   const { email, role } = user;
   const makeAdmin = () => {
-    fetch(`http://localhost:4000/user/admin/${email}`, {
+    fetch(`https://final-defense-project-server-side-abir-rahaman-abir-rahaman.vercel.app/user/admin/${email}`, {
       method: "PUT",
       headers: {
         Accept: "application/json",

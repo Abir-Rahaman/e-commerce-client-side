@@ -5,7 +5,7 @@ const useToken = (user) => {
     const userEmail = user?.user?.email;
     const currentUser = { email: userEmail };
     if (userEmail) {
-      fetch(`http://localhost:4000/user/${userEmail}`, {
+      fetch(`https://final-defense-project-server-side-abir-rahaman-abir-rahaman.vercel.app/user/${userEmail}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

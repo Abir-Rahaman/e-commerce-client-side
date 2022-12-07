@@ -16,7 +16,7 @@ const MyOrder = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:4000/cart?userEmail=${user.email}`, {
+      fetch(`https://final-defense-project-server-side-abir-rahaman-abir-rahaman.vercel.app/cart?userEmail=${user.email}`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,

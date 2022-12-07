@@ -25,7 +25,7 @@ const CheckOut = () => {
       address: getValues("address"),
       location: getValues("location"),
     };
-    fetch("https://final-defense-project-server-side-abir-rahaman-abir-rahaman.vercel.app/buyerAddress", {
+    fetch("https://final-defense-project-server-side.vercel.app/buyerAddress", {
       method: "POST",
       headers: {
         "content-type": "application/json",

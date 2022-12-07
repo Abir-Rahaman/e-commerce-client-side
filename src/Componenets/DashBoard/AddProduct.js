@@ -37,7 +37,7 @@ const AddProduct = () => {
             category: getValues("category"),
           };
           console.log(product);
-          fetch("https://final-defense-project-server-side-abir-rahaman-abir-rahaman.vercel.app/newProduct", {
+          fetch("https://final-defense-project-server-side.vercel.app/newProduct", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -58,7 +58,7 @@ const AddProduct = () => {
         }
       });
 
-    const ClientUrl = "https://final-defense-project-server-side-abir-rahaman-abir-rahaman.vercel.app/products";
+    const ClientUrl = "https://final-defense-project-server-side.vercel.app/products";
     fetch(ClientUrl, {
       method: "POST",
       headers: {

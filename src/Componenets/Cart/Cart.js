@@ -23,7 +23,7 @@ const Cart = () => {
       item: cart,
     };
 
-    fetch("https://final-defense-project-server-side-abir-rahaman-abir-rahaman.vercel.app/cart", {
+    fetch("https://final-defense-project-server-side.vercel.app/carts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

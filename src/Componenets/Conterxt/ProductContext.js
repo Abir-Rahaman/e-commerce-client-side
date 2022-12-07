@@ -12,8 +12,8 @@ const initialState = {
   products: [],
   featureProducts: [],
   isSingleLoading: false,
-  singleProduct:{},
- };
+  singleProduct: {},
+};
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -27,7 +27,6 @@ const AppProvider = ({ children }) => {
       dispatch({ type: "API_ERROR" });
     }
   };
-  
 
   const getSingleProduct = async (url) => {
     dispatch({ type: "SET_SINGLE_LOADING" });
@@ -44,13 +43,11 @@ const AppProvider = ({ children }) => {
     getProducts(API);
   }, []);
 
-  return <appContext.Provider value={{ ...state , getSingleProduct }}>{children}</appContext.Provider>;
-
-
+  return <appContext.Provider value={{ ...state, getSingleProduct }}>{children}</appContext.Provider>;
 };
 
 const useProductContext = () => {
   return useContext(appContext);
-}; 
+};
 
-export { AppProvider , appContext, useProductContext  };
+export { AppProvider, appContext, useProductContext };

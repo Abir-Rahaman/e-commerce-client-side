@@ -1,12 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import PageTitle from "./../Shared/PageTitle";
-import { toast } from 'react-hot-toast';
-
-
+import { toast } from "react-hot-toast";
 
 const UserReview = () => {
-    
   const {
     register,
     reset,
@@ -17,31 +14,27 @@ const UserReview = () => {
 
   const onSubmit = async (data) => {
     const review = {
-        name: getValues("name"),
-        review: getValues("review"),
-     
-     
-      };
+      name: getValues("name"),
+      review: getValues("review"),
+    };
     fetch("http://localhost:4000/review", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(review),
-      })
-        .then((res) => res.json())
-        .then((inserted) => {
-          if (inserted) {
-            toast.success(" Product Added Successfully Done");
-          } else {
-            toast.error("Sorry ! Something went wrong");
-          }
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((inserted) => {
+        if (inserted) {
+          toast.success(" Product Added Successfully Done");
+        } else {
+          toast.error("Sorry ! Something went wrong");
+        }
 
-          reset();
-          console.log(inserted)
-        });
-    
-
+        reset();
+        console.log(inserted);
+      });
   };
   return (
     <div className="bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 ">

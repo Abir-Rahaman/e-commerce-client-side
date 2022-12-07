@@ -176,7 +176,7 @@ const CheckOut = () => {
                   </div>
                 </div>
                 <div class="form-control mt-6 w-56">
-             <input
+                  <input
                     className="btn border-4 px-6 py-2 bg-transparent text-black rounded-full font-bold hover:bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 duration-700"
                     type="submit"
                     value="Sava and Continue"

@@ -33,6 +33,7 @@ import Blog from './Componenets/Shared/Blog';
 
 
 
+
 function App() {
   return (
     <div>
@@ -61,8 +62,11 @@ function App() {
         <Route path="/signIn" element={<SignUp />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="*" element={<NotFound />} />
+
       </Routes>
       <Footer></Footer>
+  
+     
       <Toaster />
     </div>
   );

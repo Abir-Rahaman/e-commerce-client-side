@@ -2,22 +2,21 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
-
 const PostProducts = () => {
   const {
     register,
     reset,
     formState: { errors },
     handleSubmit,
-     getValues 
+    getValues,
   } = useForm();
- 
+
   const onSubmit = async (data) => {
     const imgKey = "69fb380d3c03cfe1603dcae97afcc89a";
-    
+
     const formData = new FormData();
     const image = data.image[0];
-    formData.append("image", image)
+    formData.append("image", image);
     const url = `https://api.imgbb.com/1/upload?key=${imgKey}`;
     fetch(url, {
       method: "POST",
@@ -26,21 +25,21 @@ const PostProducts = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-       
+
         if (result.success) {
-            const image = result.data.url;
-            const oldUpload = {
-             name : getValues('name'),
-             price : getValues('price'),
-             condition : getValues('condition'),
-             duration : getValues('duration'),
-             number : getValues('number'),
-             email : getValues('email'),
-             room : getValues('room'),
-             description : getValues('description'),
-             image:image,
+          const image = result.data.url;
+          const oldUpload = {
+            name: getValues("name"),
+            price: getValues("price"),
+            condition: getValues("condition"),
+            duration: getValues("duration"),
+            number: getValues("number"),
+            email: getValues("email"),
+            room: getValues("room"),
+            description: getValues("description"),
+            image: image,
           };
-        
+
           fetch("http://localhost:4000/oldProduct", {
             method: "POST",
             headers: {
@@ -62,11 +61,12 @@ const PostProducts = () => {
             });
         }
       });
-
   };
   return (
     <div className="bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200  pt-24 ">
-      <h1 class="text-xl font-bold text-center">You can easily <span className="text-green-500">SELL & BUY </span> your used products here or purchase product that you want.</h1>
+      <h1 class="text-xl font-bold text-center">
+        You can easily <span className="text-green-500">SELL & BUY </span> your used products here or purchase product that you want.
+      </h1>
       <div class="flex justify-center py-24">
         <div class="hero-content flex-col lg:flex-row">
           <div>
@@ -107,12 +107,15 @@ const PostProducts = () => {
                       </label>
                     </div>
                     <div className="mb-4">
-                      <select  {...register("condition", {
+                      <select
+                        {...register("condition", {
                           required: {
                             value: true,
                             message: "Product Condition is required",
                           },
-                        })} class="select select-bordered w-full max-w-xs">
+                        })}
+                        class="select select-bordered w-full max-w-xs"
+                      >
                         <option disabled selected>
                           Product Condition
                         </option>
@@ -122,12 +125,15 @@ const PostProducts = () => {
                       </select>
                     </div>
                     <div className="mb-4">
-                      <select  {...register("duration", {
+                      <select
+                        {...register("duration", {
                           required: {
                             value: true,
                             message: "Product Duration is required",
                           },
-                        })} class="select select-bordered w-full max-w-xs">
+                        })}
+                        class="select select-bordered w-full max-w-xs"
+                      >
                         <option disabled selected>
                           Product Used Duration
                         </option>
@@ -157,11 +163,10 @@ const PostProducts = () => {
                         {errors.number?.type === "required" && <span class="label-text-alt text-red-600"> {errors.number.message} </span>}
                       </label>
                     </div>
-                    
                   </div>
 
                   <div className="">
-                  <div class="form-control w-full max-w-xs">
+                    <div class="form-control w-full max-w-xs">
                       <input
                         {...register("email", {
                           required: {
@@ -184,26 +189,26 @@ const PostProducts = () => {
                     </div>
                     <div class="form-control  w-full max-w-xs mb-6">
                       <input
-                        {...register("room", {
-                          
-                        })}
+                        {...register("room", {})}
                         type="text"
                         placeholder="Your Room No (*if you have)"
                         class="input  input-bordered w-full max-w-xs"
                       />
                     </div>
                     <div class="form-control ">
-                      <textarea  {...register("description", {
+                      <textarea
+                        {...register("description", {
                           required: {
                             value: true,
                             message: "Product Description is required",
-                            
                           },
-                        })} class="textarea textarea-bordered h-24" placeholder="Selling reason or product details"></textarea>
-                        
+                        })}
+                        class="textarea textarea-bordered h-24"
+                        placeholder="Selling reason or product details"
+                      ></textarea>
+
                       <label class="label">
                         {errors.description?.type === "required" && <span class="label-text-alt text-red-600"> {errors.description.message} </span>}
-                      
                       </label>
                     </div>
 
@@ -227,7 +232,7 @@ const PostProducts = () => {
                 </div>
 
                 <div class="form-control mt-6 mx-64 pb-8">
-                  <input 
+                  <input
                     className="btn btn-wide border-4 px-6 py-2 bg-transparent  text-black rounded-full font-bold hover: bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-200 duration-700"
                     type="submit"
                     value="Post"

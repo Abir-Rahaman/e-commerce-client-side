@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import FormatPrice from "../Helpers/FormatPrice";
 
-
 const MyOrder = () => {
   const [orders, setOrders] = useState([]);
 
@@ -15,7 +14,7 @@ const MyOrder = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:4000/carts?userEmail=${user.email}`, {
+      fetch(`   https://final-defense-project-server-side.vercel.app/carts?userEmail=${user.email}`, {
         method: "GET",
       })
         .then((res) => {

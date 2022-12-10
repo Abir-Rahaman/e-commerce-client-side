@@ -40,7 +40,7 @@ const PostProducts = () => {
             image: image,
           };
 
-          fetch("http://localhost:4000/oldProduct", {
+          fetch("   https://final-defense-project-server-side.vercel.app/oldProduct", {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -7,7 +7,7 @@ const useAdmin = (user) => {
     const userEmail = user?.email;
     console.log(userEmail);
     if (userEmail) {
-      fetch(`http://localhost:4000/admin/${userEmail}`, {
+      fetch(`   https://final-defense-project-server-side.vercel.app/admin/${userEmail}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",

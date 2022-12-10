@@ -39,7 +39,7 @@ const AddProductDetails = () => {
             reviews: data.reviews,
           };
 
-          const ClientUrl = "https://final-defense-project-server-side.vercel.app/productsDetails";
+          const ClientUrl = "http://localhost:4000/productsDetails";
 
           fetch(ClientUrl, {
             method: "POST",
@@ -55,7 +55,7 @@ const AddProductDetails = () => {
               console.log(result);
             });
 
-          fetch("https://final-defense-project-server-side.vercel.app/productDetails", {
+          fetch("http://localhost:4000/productDetails", {
             method: "POST",
             headers: {
               "content-type": "application/json",

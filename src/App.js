@@ -28,6 +28,7 @@ import Contact from './Componenets/Contact/Contact';
 import Review from './Componenets/Review/Review';
 import UserReview from './Componenets/DashBoard/UserReview';
 import Blog from './Componenets/Shared/Blog';
+import OrderSheet from './Componenets/DashBoard/OrderSheet';
 
 
 
@@ -53,6 +54,7 @@ function App() {
             <Route path='allUsers' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
             <Route path='addProduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
             <Route path='addProductDetails' element={<RequireAdmin><AddProductDetails></AddProductDetails></RequireAdmin>}></Route>
+            <Route path='OrderSheet' element={<RequireAdmin><OrderSheet></OrderSheet></RequireAdmin>}></Route>
         </Route>
         <Route path="/oldProducts" element={<ShowOldProducts></ShowOldProducts>} />
         <Route path="/about" element={<About></About>} />

@@ -1,4 +1,6 @@
 import React from "react";
+import moment from 'moment';
+
 import CartItem from "../CartItem/CartItem";
 import { useCartContext } from "../Conterxt/CartContext";
 import { Link } from "react-router-dom";
@@ -10,6 +12,8 @@ import { toast } from "react-hot-toast";
 const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
   const [user] = useAuthState(auth);
+  const date= moment().format('MMMM Do YYYY, h:mm:ss a');
+  console.log(date);
 
   const handleBooking = () => {
     const cartProducts = {
@@ -21,9 +25,10 @@ const Cart = () => {
       shipping_fee,
       price: total_price + shipping_fee,
       item: cart,
+      date:date,
     };
 
-    fetch("https://final-defense-project-server-side.vercel.app/carts", {
+    fetch("http://localhost:4000/cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

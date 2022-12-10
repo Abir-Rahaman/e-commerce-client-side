@@ -4,9 +4,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "./../../firebase.init";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
-import { RiDeleteBin7Fill } from "react-icons/ri";
 import FormatPrice from "../Helpers/FormatPrice";
-import { toast } from "react-hot-toast";
+
 
 const MyOrder = () => {
   const [orders, setOrders] = useState([]);
@@ -16,11 +15,8 @@ const MyOrder = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`https://final-defense-project-server-side.vercel.app/cart?userEmail=${user.email}`, {
+      fetch(`http://localhost:4000/carts?userEmail=${user.email}`, {
         method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
       })
         .then((res) => {
           if (res.status === 401 || res.status === 403) {

@@ -4,7 +4,7 @@ import ShowReview from "./ShowReview";
 const Review = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("https://final-defense-project-server-side.vercel.app/review")
+    fetch("http://localhost:4000/review")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);

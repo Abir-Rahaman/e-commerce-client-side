@@ -4,12 +4,20 @@ import reducer from "../Reducer/CartReducer";
 
 const CartContext = createContext();
 
+const getLocalCartData = () => {
+  let localCartData = localStorage.getItem("cart");
+  if (localCartData === []) {
+    return [];
+  } else {
+    return JSON.parse(localCartData);
+  }
+};
 
 
 
 const initialState = {
-  cart: [],
-  // cart:getLocalCartData(),
+  // cart: [],
+  cart:getLocalCartData(),
   total_item: "",
   total_price: "",
   shipping_fee: 0,

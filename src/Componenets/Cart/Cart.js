@@ -12,8 +12,8 @@ import { toast } from "react-hot-toast";
 const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
   const [user] = useAuthState(auth);
-  const date = moment().format("MMMM Do YYYY, h:mm:ss a");
-  console.log(date);
+  const date = moment().format("YYYY-DD-MM");
+ 
 
   const handleBooking = () => {
     const cartProducts = {

@@ -17,7 +17,7 @@ const UserReview = () => {
       name: getValues("name"),
       review: getValues("review"),
     };
-    fetch("   https://final-defense-project-server-side.vercel.app/review", {
+    fetch("https://final-defense-project-server-side.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

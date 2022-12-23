@@ -4,7 +4,7 @@ import reducer from "../Reducer/ProductReducer";
 
 const appContext = createContext();
 
-const API = "   https://final-defense-project-server-side.vercel.app/products";
+const API = "https://final-defense-project-server-side.vercel.app/products";
 
 const initialState = {
   isLoading: false,

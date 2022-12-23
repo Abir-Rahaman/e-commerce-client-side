@@ -10,7 +10,7 @@ const AllUsers = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("   https://final-defense-project-server-side.vercel.app/user", {
+    fetch("https://final-defense-project-server-side.vercel.app/user", {
       headers: {
         authorization: `Bearer${localStorage.getItem("accessToken")}`,
       },
@@ -18,7 +18,7 @@ const AllUsers = () => {
   );
 
   const handleDeleteUser = (user) => {
-    fetch(`   https://final-defense-project-server-side.vercel.app/user/${user._id}`, {
+    fetch(`https://final-defense-project-server-side.vercel.app/user/${user._id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer${localStorage.getItem("accessToken")}`,

@@ -8,7 +8,7 @@ const ShowOldProducts = () => {
 
   const [oldProducts, serOldProducts] = useState([]);
   useEffect(() => {
-    fetch("   https://final-defense-project-server-side.vercel.app/oldProduct")
+    fetch("https://final-defense-project-server-side.vercel.app/oldProduct")
       .then((res) => res.json())
       .then((data) => serOldProducts(data));
   }, []);

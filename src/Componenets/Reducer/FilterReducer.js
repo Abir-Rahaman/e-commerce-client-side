@@ -11,7 +11,7 @@ const FilterReducer = (state, action) => {
         ...state,
         all_Products: [...action.payload],
         filter_Products: [...action.payload],
-        filters: { ...state.filters, maxPrice, price: maxPrice },
+        filters: { ...state.filters, maxPrice, price: maxPrice},
       };
 
     case "SET_GRID_VIEW":

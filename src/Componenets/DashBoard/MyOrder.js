@@ -14,7 +14,7 @@ const MyOrder = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`   https://final-defense-project-server-side.vercel.app/carts?userEmail=${user.email}`, {
+      fetch(`https://final-defense-project-server-side.vercel.app/carts?userEmail=${user.email}`, {
         method: "GET",
       })
         .then((res) => {

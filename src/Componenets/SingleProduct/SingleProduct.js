@@ -17,7 +17,7 @@ import PageTitle from "./../Shared/PageTitle";
 const SingleProduct = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(`   https://final-defense-project-server-side.vercel.app/products/${id}`)
+    fetch(`https://final-defense-project-server-side.vercel.app/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
